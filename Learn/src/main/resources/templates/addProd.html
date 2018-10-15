@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset = "ISO-8859-1" />
+      <title>Add Products</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      
+      <script>
+      $("#myForm").submit(function(e) {
+               $.ajax({
+                  type : "POST",
+                  url : "http://localhost:8084/products",
+                  headers : {
+                     "Content-Type" : "application/json"
+                  },
+                  data : formData,
+                  dataType: "json",
+  				  contentType : "application/json", 
+                  success : function(data) {
+                     alert(data);
+                  },
+                  error : function(data) {
+                  }
+               });
+              });
+
+      </script>
+   </head>
+   
+   <body>
+   	      <form action="https://localhost/products" method="POST" name="myForm">
+        <p><label for="id">ID:</label>
+        <input type="text" name="id" id="id"></p>
+
+        <p><label for="product">product:</label>
+        <input type="text" name="product" id="product"></p>
+
+        <input value="Submit" type="submit" >
+    </form>
+      
+   </body>
+</html>
